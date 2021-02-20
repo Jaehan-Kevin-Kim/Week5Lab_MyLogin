@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
                 if (logout != null){
                     request.setAttribute("message", msg);
                     session.invalidate();
-                       session = request.getSession();
+                    session = request.getSession();
 
 
                 }
@@ -66,7 +66,7 @@ public class LoginServlet extends HttpServlet {
         
         if ((username != null || username.equals("")) && (password != null || password.equals(""))){
             User user = accountService.login(username, password);
-            session.setAttribute("user", user);
+//            session.setAttribute("user", user);
             
             System.out.println(user);
             if (user != null){
