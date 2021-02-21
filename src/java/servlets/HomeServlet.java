@@ -21,42 +21,31 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
 public class HomeServlet extends HttpServlet {
 
- 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         HttpSession session = request.getSession();
-         String username = (String) session.getAttribute("username");
-         request.setAttribute("username", username);
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute("username");
+        request.setAttribute("username", username);
         String logout = request.getParameter("logout");
-//        String logoutMsg = "You have successfully logged out.";
 
-        System.out.println(username);
-
-        if (username == null || username.equals("")){
+        if (username == null || username.equals("")) {
             response.sendRedirect("/login");
             return;
-            
         }
-        if (logout != null){                 
-                response.sendRedirect("/login");
+
+        if (logout != null) {
+            response.sendRedirect("/login");
         } else {
             getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
         }
-         
-         
-        
-        
+
     }
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     
-        
-        
-    }
 
+    }
 
 }

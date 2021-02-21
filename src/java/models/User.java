@@ -12,18 +12,18 @@ import java.util.ArrayList;
  * @author 841898
  */
 public class User {
+
     private String username;
     private String password;
-        
-    public User (String username, String password){
+
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
     public User() {
-        
-    }
 
+    }
 
     public String getUsername() {
         return username;
@@ -45,6 +45,5 @@ public class User {
     public String toString() {
         return "User{" + "username=" + username + ", password=" + password + '}';
     }
-    
-    
+
 }
